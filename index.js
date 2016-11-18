@@ -1,1 +1,3 @@
-// Your code here
+$(document).ready(function() {
+  console.log('im working!')
+});
