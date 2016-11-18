@@ -1,11 +1,24 @@
 $(document).ready(function() {
-  var date =new Date(Date.now());
 
-  var hours = date.getHours();
-  var minutes = date.getMinutes();
-  var seconds = date.getSeconds();
+  var setDate = function() {
+    var date =new Date(Date.now());
 
-  var time = hours + ':' + minutes + ':' + seconds;
-  $('#clock').html(time);
+    var hours = date.getHours();
+    var minutes = displayTime(date.getMinutes());
+    var seconds = displayTime(date.getSeconds());
+
+    var time = hours + ':' + minutes + ':' + seconds;
+    $('#clock').html(time);
+  };
+
+  var displayTime = function(number) {
+    if (number < 10) {
+      return '0' + number;
+    } else {
+      return number;
+    }
+  };
+
+  setInterval(function(){ setDate(); }, 1000);
 
 });
