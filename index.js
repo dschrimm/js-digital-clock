@@ -7,6 +7,10 @@ $(document).ready(function() {
     var minutes = displayTime(date.getMinutes());
     var seconds = displayTime(date.getSeconds());
 
+    newColor = getRandomColor();
+
+    $('#clock').css('background-color', newColor);
+
     var time = hours + ':' + minutes + ':' + seconds;
     $('#clock').html(time);
   };
@@ -20,5 +24,14 @@ $(document).ready(function() {
   };
 
   setInterval(function(){ setDate(); }, 1000);
+
+  function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
 
 });
