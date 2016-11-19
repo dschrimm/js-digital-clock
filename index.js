@@ -4,6 +4,14 @@ $(document).ready(function() {
     var date =new Date(Date.now());
 
     var hours = date.getHours();
+
+    var midday = 'AM';
+    if (hours > 11) {
+      midday = 'PM';
+      if (hours > 12) {
+        hours %= 12;
+      }
+    }
     var minutes = displayTime(date.getMinutes());
     var seconds = displayTime(date.getSeconds());
 
@@ -11,7 +19,7 @@ $(document).ready(function() {
 
     $('#clock').css('background-color', newColor);
 
-    var time = hours + ':' + minutes + ':' + seconds;
+    var time = hours + ':' + minutes + ':' + seconds + ' ' + midday;
     $('#clock').html(time);
   };
 
